@@ -1,0 +1,56 @@
+
+============================
+Java & Maven
+============================
+target/
+*.class
+*.jar
+*.war
+*.ear
+.log
+hs_err_pid
+replay_pid*
+
+Maven wrapper files
+.mvn/wrapper/maven-wrapper.jar
+
+============================
+IDEs and Editors
+============================
+IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+VS Code
+.vscode/
+.history/
+*.code-workspace
+
+Neovim
+.swap
+*.swp
+*.swo
+.session
+nvimlog
+
+Eclipse (just in case)
+.project
+.classpath
+.settings/
+
+============================
+OS / Environment
+============================
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+============================
+Logs & Temp
+============================
+logs/
+*.log
+tmp/
+temp/
