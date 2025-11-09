@@ -46,7 +46,7 @@
 
     <build>
         <plugins>
-            <!-- Compiler plugin for Java version -->
+            <!-- Compiler plugin for Java 17 with detailed errors -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -54,6 +54,14 @@
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
+                    <showWarnings>true</showWarnings>
+                    <failOnError>true</failOnError>
+                    <compilerArgs>
+                        <arg>-Xlint:all</arg>        <!-- Show all warnings -->
+                        <arg>-Werror</arg>           <!-- Treat warnings as errors -->
+                        <arg>-proc:none</arg>        <!-- Disable annotation processing noise -->
+                        <arg>-Xlint:-options</arg>   <!-- Ignore system modules path warning in Java 17 -->
+                    </compilerArgs>
                 </configuration>
             </plugin>
 
@@ -97,8 +105,7 @@
     </build>
 
     <repositories>
-        <!-- Optional: Add if any dependencies need external repo -->
+        <!-- Optional: Add external repositories if needed -->
     </repositories>
 </project>
-
 
