@@ -1,38 +1,26 @@
 package io.github.codeblooded;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+public class AppTest {
+
+    @Test
+    void testAddition() {
+        int result = App.addNumbers(2, 3);
+        assertEquals(5, result, "2 + 3 should equal 5");
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    @Test
+    void testNegativeNumbers() {
+        int result = App.addNumbers(-2, -3);
+        assertEquals(-5, result, "Negative numbers should work correctly");
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    void testZeroCase() {
+        int result = App.addNumbers(0, 5);
+        assertEquals(5, result, "Adding zero should not change the result");
     }
 }
+

@@ -20,10 +20,25 @@
     </properties>
 
     <dependencies>
-        <!-- JUnit 5 -->
+        <!-- ✅ JUnit 5 (Jupiter API + Engine) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ✅ (Optional but recommended) JUnit Vintage for backward compatibility -->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
@@ -46,7 +61,17 @@
 
     <build>
         <plugins>
-            <!-- Compiler plugin for Java 17 with detailed errors -->
+            <!-- ✅ Surefire Plugin for running JUnit 5 tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <useModulePath>false</useModulePath>
+                </configuration>
+            </plugin>
+
+            <!-- Compiler plugin for Java 17 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -57,15 +82,15 @@
                     <showWarnings>true</showWarnings>
                     <failOnError>true</failOnError>
                     <compilerArgs>
-                        <arg>-Xlint:all</arg>        <!-- Show all warnings -->
-                        <arg>-Werror</arg>           <!-- Treat warnings as errors -->
-                        <arg>-proc:none</arg>        <!-- Disable annotation processing noise -->
-                        <arg>-Xlint:-options</arg>   <!-- Ignore system modules path warning in Java 17 -->
+                        <arg>-Xlint:all</arg>
+                        <arg>-Werror</arg>
+                        <arg>-proc:none</arg>
+                        <arg>-Xlint:-options</arg>
                     </compilerArgs>
                 </configuration>
             </plugin>
 
-            <!-- JAR plugin to make executable JAR -->
+            <!-- JAR plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -80,7 +105,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Enforcer Plugin to enforce Java version -->
+            <!-- Enforcer Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
