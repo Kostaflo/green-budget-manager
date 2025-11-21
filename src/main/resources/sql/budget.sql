@@ -1,6 +1,3 @@
--- Δημιουργία βάσης (SQLite δεν υποστηρίζει CREATE DATABASE, απλά ανοίγεις αρχείο)
--- Στη συνέχεια δημιουργείς τους πίνακες:
-
 CREATE TABLE budget (
     id INTEGER PRIMARY KEY,
     foreas TEXT NOT NULL,
