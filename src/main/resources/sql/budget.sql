@@ -2,7 +2,7 @@ CREATE TABLE budget (
     id INTEGER PRIMARY KEY,
     foreas TEXT NOT NULL,
     poso INTEGER NOT NULL CHECK (poso > 0),
-    pososto REAL GENERATED ALWAYS AS (poso / 25000000.0)
+    pososto REAL GENERATED ALWAYS AS (poso / 25000000.0) VIRTUAL
 );
 
 

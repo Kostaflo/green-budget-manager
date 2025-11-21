@@ -2,7 +2,7 @@ package io.github.codeblooded;
 
 public class App {
     public static int addNumbers(int a, int b) {
-        return a + b
+        return a + b ; 
     }
 
     public static void main(String[] args) {
