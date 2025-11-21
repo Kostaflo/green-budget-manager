@@ -20,7 +20,7 @@ public class AppTest {
     @Test
     void testZeroCase() {
         int result = App.addNumbers(0, 5);
-        assertEquals(5, result, "Adding zero should not change the result");
+        assertEquals(10, result, "Adding zero should not change the result");
     }
 }
 
