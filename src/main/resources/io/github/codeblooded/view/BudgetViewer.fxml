@@ -12,7 +12,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/17"
   xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="io.github.codeblooded.controller.MainController">
+  fx:controller="io.github.codeblooded.controller.BudgetController">
 
   <!-- Top: menu + title -->
   <top>
@@ -22,25 +22,25 @@
       </MenuBar>
 
       <HBox style="-fx-padding:10; -fx-alignment:center;">
-        <Label text="Welcome"
+        <Label text="Greek Budget Data"
           style="-fx-font-size:18px; -fx-font-weight:bold;" />
       </HBox>
     </VBox>
   </top>
 
-  <!-- Center: 22×4 table (controller will fill and show it) -->
+  <!-- Center: table -->
   <center>
-    <TableView fx:id="tableView" visible="true">
+    <TableView fx:id="tableView">
       <columns>
-        <TableColumn text="ID" prefWidth="150" />
-        <TableColumn text="Agency" prefWidth="150" />
-        <TableColumn text="Ammount" prefWidth="150" />
-        <TableColumn text="Percentage" prefWidth="150" />
+        <TableColumn fx:id="idColumn" text="ID" prefWidth="150" />
+        <TableColumn fx:id="agencyColumn" text="Agency" prefWidth="150" />
+        <TableColumn fx:id="amountColumn" text="Amount" prefWidth="150" />
+        <TableColumn fx:id="percentageColumn" text="Percentage" prefWidth="150" />
       </columns>
     </TableView>
   </center>
 
-  <!-- Bottom: button (controller handles action) -->
+  <!-- Bottom: button -->
   <bottom>
     <HBox style="-fx-padding:10; -fx-alignment:center;">
       <Button fx:id="showButton" text="Show Table" />

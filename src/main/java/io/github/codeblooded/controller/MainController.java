@@ -32,38 +32,53 @@ public class MainController implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
+    System.out.println("Controller initialized!");
+    System.out.println("tableView: " + tableView);
+    System.out.println("idColumn: " + idColumn);
+    System.out.println("agencyColumn: " + agencyColumn);
+
     setupTableColumns();
     setupButtonAction();
   }
 
   private void setupTableColumns() {
-    // Configure the columns to use the appropriate getter methods from BudgetItem
-    idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-    agencyColumn.setCellValueFactory(new PropertyValueFactory<>("agency"));
-    amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
-    percentageColumn.setCellValueFactory(new PropertyValueFactory<>("percentage"));
+    // Add null checks
+    if (idColumn != null
+        && agencyColumn != null
+        && amountColumn != null
+        && percentageColumn != null) {
+      idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+      agencyColumn.setCellValueFactory(new PropertyValueFactory<>("agency"));
+      amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+      percentageColumn.setCellValueFactory(new PropertyValueFactory<>("percentage"));
+      System.out.println("Table columns configured successfully");
+    } else {
+      System.err.println("One or more table columns are null!");
+      System.err.println("idColumn: " + idColumn);
+      System.err.println("agencyColumn: " + agencyColumn);
+      System.err.println("amountColumn: " + amountColumn);
+      System.err.println("percentageColumn: " + percentageColumn);
+    }
   }
 
   private void setupButtonAction() {
-    showButton.setOnAction(event -> loadBudgetData());
+    if (showButton != null) {
+      showButton.setOnAction(event -> loadBudgetData());
+      System.out.println("Button action configured");
+    } else {
+      System.err.println("showButton is null!");
+    }
   }
 
   private void loadBudgetData() {
-    // Clear existing data
-    budgetData.clear();
-
-    // Load data from database
-    budgetData.addAll(database.getAllBudgets());
-
-    // Set the data to table
-    tableView.setItems(budgetData);
-
-    // Make table visible if it wasn't already
-    tableView.setVisible(true);
-  }
-
-  // Optional: Method to refresh data
-  public void refreshData() {
-    loadBudgetData();
+    try {
+      budgetData.clear();
+      budgetData.addAll(database.getAllBudgets());
+      tableView.setItems(budgetData);
+      System.out.println("Loaded " + budgetData.size() + " items");
+    } catch (Exception e) {
+      System.err.println("Error loading data: " + e.getMessage());
+      e.printStackTrace();
+    }
   }
 }
