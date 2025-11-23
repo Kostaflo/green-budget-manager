@@ -20,10 +20,10 @@ public class Database {
 
       while (rs.next()) {
         int id = rs.getInt("id");
-        String name = rs.getString("name");
-        int amount = rs.getInt("amount");
-        double percentage = rs.getDouble("percentage");
-        budgets.add(new BudgetItem(id, name, amount, percentage));
+        String name = rs.getString("foreas");
+        int amount = rs.getInt("poso");
+        double percentage = rs.getDouble("pososto");
+        budgets.add(new BudgetItem(id, foreas, poso, pososto));
       }
 
     } catch (SQLException e) {
