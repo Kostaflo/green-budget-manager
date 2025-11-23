@@ -19,8 +19,19 @@
         <sqlite.version>3.41.2.1</sqlite.version>
     </properties>
 
-    <dependencies>
-        <!-- ✅ JUnit 5 (Jupiter API + Engine) -->
+<dependencies>
+
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>17.0.2</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-fxml</artifactId>
+        <version>17.0.2</version>
+    </dependency>
+		<!-- ✅ JUnit 5 (Jupiter API + Engine) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
