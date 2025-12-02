@@ -81,6 +81,21 @@
         </configuration>
       </plugin>
 
+
+    <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <mainClass>io.github.codeblooded.Main</mainClass>
+            </configuration>
+    </plugin>
+
+
+
+
+
+
       <!-- Compiler plugin for Java 17 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
