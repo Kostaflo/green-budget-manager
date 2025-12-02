@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+  xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="io.github.codeblooded.controller.MainController">
+
+  <!-- Top: menu + title -->
+  <top>
+    <VBox>
+      <MenuBar>
+        <Menu text="Green Budget Manager" />
+      </MenuBar>
+
+      <HBox style="-fx-padding:10; -fx-alignment:center;">
+        <Label text="Greek Budget Data"
+          style="-fx-font-size:18px; -fx-font-weight:bold;" />
+      </HBox>
+    </VBox>
+  </top>
+
+  <!-- Center: table -->
+  <center>
+    <TableView fx:id="tableView">
+      <columns>
+        <TableColumn fx:id="idColumn" text="ID" prefWidth="150" />
+        <TableColumn fx:id="agencyColumn" text="Agency" prefWidth="150" />
+        <TableColumn fx:id="amountColumn" text="Amount" prefWidth="150" />
+        <TableColumn fx:id="percentageColumn" text="Percentage" prefWidth="150" />
+      </columns>
+    </TableView>
+  </center>
+
+  <!-- Bottom: button -->
+  <bottom>
+    <HBox style="-fx-padding:10; -fx-alignment:center;">
+      <Button fx:id="showButton" text="Show Table" />
+    </HBox>
+  </bottom>
+
+</BorderPane>
