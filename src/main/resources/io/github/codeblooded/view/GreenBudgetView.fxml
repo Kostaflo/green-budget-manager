@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx/17" 
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="MainScreenController">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+    
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Φίλτρο 1:"/>
+            <ComboBox fx:id="filter1Combo"/>
+
+            <Label text="Φίλτρο 2:"/>
+            <ComboBox fx:id="filter2Combo"/>
+        </HBox>
+
+    </top>
+
+  
+    <center>
+        <SplitPane dividerPositions="0.55">
+            <items>
+
+                <VBox spacing="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        <Label text="Current Budget" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                        <TableView fx:id="mainTableView" prefHeight="600" prefWidth="400">
+                            <columns>
+                                <TableColumn fx:id="colA" text="ID"/>
+                                <TableColumn fx:id="colB" text="Agency"/>
+                                <TableColumn fx:id="colC" text="Amount"/> 
+                                 <TableColumn fx:id="colD" text="Percentage"/>
+                            </columns>
+                        </TableView>
+                    
+                </VBox>
+
+           
+                <VBox spacing="20">
+                        <padding>
+                            <Insets top="0" right="0" bottom="20" left="0"/>
+                        </padding>
+                        <VBox>
+                            <Label text="Percentage Pie" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <PieChart fx:id="pieChart1" prefHeight="250" prefWidth="300"/>
+                        </VBox>
+
+                        <!-- Bar Chart -->
+                        <VBox>
+                            <Label text="Percentage Bar Chart" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <BarChart fx:id="barChart" prefHeight="250" prefWidth="300">
+                                <xAxis>
+                                    <CategoryAxis label="Κατηγορίες"/>
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis label="Τιμές"/>
+                                </yAxis>
+                            </BarChart>
+                        </VBox>
+
+                </VBox>
+
+            </items>
+        </SplitPane>
+    </center>
+
+    <!-- BOTTOM: Admin Simulation Panel -->
+    <bottom>
+        <TitledPane text="Προσομοίωση Admin" expanded="false">
+            <content>
+                <HBox spacing="15">
+                    <padding>
+                        <Insets top="0" right="0" bottom="20" left="0"/>
+                    </padding>                
+                    <Button fx:id="btnStartSim" text="Έναρξη Προσομοίωσης"/>
+                    <Button fx:id="btnStopSim" text="Τερματισμός"/>
+                    <Label text="Κατάσταση:"/>
+                    <Label fx:id="lblSimStatus" text="Ανενεργή"/>
+                    
+                </HBox>
+            </content>
+        </TitledPane>
+    </bottom>
+
+</BorderPane>
