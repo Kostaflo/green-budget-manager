@@ -19,7 +19,7 @@
     </top>
 
     <center>
-        <VBox alignment="CENTER">
+        <VBox alignment="CENTER" spacing="10">
             <Button fx:id="AdminButton" text="As Admin"/>
             <Button fx:id="GuestButton" text="As Guest"/>
         </VBox>
