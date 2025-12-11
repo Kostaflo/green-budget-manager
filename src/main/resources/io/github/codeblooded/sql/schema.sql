@@ -8,11 +8,11 @@ DROP TABLE IF EXISTS Regions;
 DROP TABLE IF EXISTS Users;
 
 -- Πίνακας Users
-CREATE TABLE Users (
-    user_id     INTEGER     PRIMARY KEY,
-    username    TEXT        NOT NULL UNIQUE,
-    role        TEXT        NOT NULL CHECK(role IN ('admin', 'readonly')) 
-);
+--CREATE TABLE Users (
+  --  user_id     INTEGER     PRIMARY KEY,
+    --username    TEXT        NOT NULL UNIQUE,
+   -- role        TEXT        NOT NULL CHECK(role IN ('admin', 'readonly')) 
+--);
 
 -- Πίνακας Ministries (Φορείς/Υπουργεία)
 CREATE TABLE Ministries (
@@ -65,9 +65,9 @@ CREATE TABLE Budget (
 
 
 -- Users
-INSERT INTO Users (user_id, username, role) VALUES
-(1, 'admin_user', 'admin'),
-(2, 'readonly_user', 'readonly');
+--INSERT INTO Users (user_id, username, role) VALUES
+--(1, 'admin_user', 'admin'),
+--(2, 'readonly_user', 'readonly');
 
 -- Ministries
 INSERT INTO Ministries (ministry_id, ministry_name, total_budget_2025) VALUES
