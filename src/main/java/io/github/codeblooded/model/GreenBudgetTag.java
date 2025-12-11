@@ -47,11 +47,11 @@ public class GreenBudgetTag {
     this.programName = programName;
   }
 
-  public String getMinistryId() {
+  public int getMinistryId() {
     return ministryId;
   }
 
-  public void setMinistryId(String ministryId) {
+  public void setMinistryId(int ministryId) {
     this.ministryId = ministryId;
   }
 
