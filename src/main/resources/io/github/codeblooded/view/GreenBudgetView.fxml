@@ -34,13 +34,20 @@
                         <padding>
                             <Insets top="10" right="10" bottom="10" left="10"/>
                         </padding>
-                        <Label text="Current Budget" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                        <Label text="Τρέχων προϋπολογισμός" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
                         <TableView fx:id="mainTableView" prefHeight="600" prefWidth="400">
                             <columns>
-                                <TableColumn fx:id="colA" text="ID"/>
-                                <TableColumn fx:id="colB" text="Agency"/>
-                                <TableColumn fx:id="colC" text="Amount"/> 
-                                 <TableColumn fx:id="colD" text="Percentage"/>
+                                <TableColumn fx:id="colA" text="ID">
+                                <TableColumn fx:id="colB" text="Προγράμματα"/>
+                                <TableColumn fx:id="colC" text="Φορέας"/>
+                                <TableColumn fx:id="colD" text="Δαπάνες"/> 
+                                <TableColumn fx:id="colE" text="Μείσωση Κλ. Αλλαγής"/>
+                                <TableColumn fx:id="colF" text="Προσαρμογή Κλ. Αλλαγή"/> 
+                                <TableColumn fx:id="colG" text="Υδάτινοι/Θαλάσσιοι Πόροι"/>
+                                <TableColumn fx:id="colH" text="Κυκλική Οικονομία"/>
+                                <TableColumn fx:id="colI" text="Έλεγχος ρύπανσης"/>
+                                <TableColumn fx:id="colJ" text="Βιοποικιλότητα"/>
+                                <TableColumn fx:id="colD" text="Αποτίμηση Προγάμματος"/> 
                             </columns>
                         </TableView>
                     
