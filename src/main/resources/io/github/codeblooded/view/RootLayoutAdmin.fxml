@@ -16,16 +16,19 @@
 <BorderPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1">
     <top>
+        
+        <VBox spacing = "10">
+            <Label text="Green Budget Manager" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+        </VBox>
+        
+        
         <VBox alignment="CENTER" spacing = "10">
             <Label text="Main Menu" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
         </VBox>
     </top>
 
     <center>
-        <VBox alignment="CENTER" spacing = "10">
-            <Button fx:id="ViewButton" text="View Current Budget"/>
-            <Button fx:id="EditButton" text="Edit Current Budget"/>
-        </VBox>
+        <Stackpane fx:id="mainPane"/>
     </center>
 
     <bottom>
@@ -33,7 +36,7 @@
             <padding>
                 <Insets top="0" right="0" bottom="20" left="0"/>
             </padding>
-            <Button fx:id="LogoutButton" text="Logout"/>
+            <Button fx:id="exitButton" text="Exit"/>
         </VBox>
     </bottom>
 </BorderPane>

@@ -31,6 +31,7 @@
             <PasswordField fx:id="passwordField" promptText="Enter Password"  prefWidth="200"
     maxWidth="200" visible="false"/> 
             <Button fx:id="LoginButton" text="Log in"/>
+            <Button fx:id="GuestButton" text="Guest"/>
         </VBox>
     </center>
 

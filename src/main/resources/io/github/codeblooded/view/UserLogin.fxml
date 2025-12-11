@@ -4,24 +4,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17"
-            xmlns:fx="http://javafx.com/fxml/1">
 
-    <top>
+
+
+    <center> 
         <VBox alignment="CENTER" spacing="10">
-            <Label text="Welcome To Green Budget Manager" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-            <Label text="Login:" style="-fx-font-size: 14px;"/>
-        </VBox>
-    </top>
-
-    <center>
-        <VBox alignment="CENTER" spacing="10">
-            <Button fx:id="AdminButton" text="As Admin"/>
-            <Button fx:id="GuestButton" text="As Guest"/>
+            <Label text="Log in as:"/>
+            <Button fx:id="LoginButton" text="Admin"/>
+            <Button fx:id="GuestButton" text="Guest"/>
         </VBox>
     </center>
-</BorderPane>
+
+    <!--<bottom>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets top="0" right="0" bottom="20" left="0"/>
+            </padding>
+            <Button fx:id="BackButton" text="Go Back"/>
+        </VBox>
+    </bottom>-->
