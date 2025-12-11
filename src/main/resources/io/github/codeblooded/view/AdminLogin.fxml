@@ -29,7 +29,8 @@
             <TextField fx:id="usernameField" promptText="Enter Username"  prefWidth="200"
     maxWidth="200"/>
             <PasswordField fx:id="passwordField" promptText="Enter Password"  prefWidth="200"
-    maxWidth="200"/> 
+    maxWidth="200" visible="false"/> 
+            <Button fx:id="BackButton" text="Log in"/>
         </VBox>
     </center>
 
