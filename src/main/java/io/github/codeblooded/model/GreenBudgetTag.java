@@ -89,22 +89,22 @@ public class GreenBudgetTag {
 
   // --- Getters and Setters για τα 6 Επιμέρους Tags ---
 
-  public String getTagKlhmatikhMeivsh() {
+  public String getTagKlhmatikhMeiwsh() {
     return tagKlhmatikhMeivsh;
   }
 
   /** Μείωση των επιπτώσεων της κλιματικής αλλαγής */
-  public void setTagKlhmatikhMeivsh(String tagKlhmatikhMeivsh) {
+  public void setTagKlhmatikhMeiwsh(String tagKlhmatikhMeivsh) {
     this.tagKlhmatikhMeivsh = tagKlhmatikhMeivsh;
   }
 
-  public String getTagKlhmatikhProsarmofh() {
+  public String getTagKlhmatikhProsarmogh() {
     return tagKlhmatikhProsarmofh;
   }
 
   /** Προσαρμογή στην κλιματική αλλαγή */
-  public void setTagKlhmatikhProsarmofh(String tagKlhmatikhProsarmofh) {
-    this.tagKlhmatikhProsarmofh = tagKlhmatikhProsarmofh;
+  public void setTagKlhmatikhProsarmogh(String tagKlhmatikhProsarmofh) {
+    this.tagKlhmatikhProsarmogh = tagKlhmatikhProsarmogh;
   }
 
   public String getTagYdatina() {
