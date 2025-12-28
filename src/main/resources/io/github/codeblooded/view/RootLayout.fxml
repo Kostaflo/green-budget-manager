@@ -14,29 +14,29 @@
 <?import javafx.geometry.Insets?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17"
-            xmlns:fx="http://javafx.com/fxml/1">
-    <top>
-        
-        <VBox spacing = "10">
-            <Label text="Green Budget Manager" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-        </VBox>
-        
-        
-        <VBox alignment="CENTER" spacing = "10">
-            <Label text="Main Menu" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-        </VBox>
-    </top>
+  xmlns:fx="http://javafx.com/fxml/1">
+  <top>
 
-    <center>
-        <Stackpane fx:id="mainPane"/>
-    </center>
+    <VBox spacing="10">
+      <Label text="Green Budget Manager" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    </VBox>
 
-    <bottom>
-        <VBox alignment="CENTER">
-            <padding>
-                <Insets top="0" right="0" bottom="20" left="0"/>
-            </padding>
-            <Button fx:id="exitButton" text="Exit"/>
-        </VBox>
-    </bottom>
+
+    <VBox alignment="CENTER" spacing="10">
+      <Label text="Main Menu" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    </VBox>
+  </top>
+
+  <center>
+    <StackPane fx:id="mainPane" />
+  </center>
+
+  <bottom>
+    <VBox alignment="CENTER">
+      <padding>
+        <Insets top="0" right="0" bottom="20" left="0" />
+      </padding>
+      <Button fx:id="exitButton" text="Exit" />
+    </VBox>
+  </bottom>
 </BorderPane>
