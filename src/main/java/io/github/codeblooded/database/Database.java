@@ -1,37 +1,50 @@
 package io.github.codeblooded.database;
 
-import io.github.codeblooded.model.BudgetItem;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-public class Database {
+public final class Database {
 
-  private static final String URL = "jdbc:sqlite:budget.db";
+  // SQLite database file (relative to project root)
+  private static final String DB_URL = "jdbc:sqlite:green_budget.db";
 
-  public List<BudgetItem> getAllBudgets() {
-    List<BudgetItem> budgets = new ArrayList<>();
-    String sql = "SELECT id, foreas, poso, pososto FROM budget";
+  private static Connection connection;
 
-    try (Connection conn = DriverManager.getConnection(URL);
-         PreparedStatement stmt = conn.prepareStatement(sql);
-         ResultSet rs = stmt.executeQuery()) {
+  // Private constructor -> no instances
+  private Database() {}
 
-        while (rs.next()) {
-            // declare and assign inside the loop
-            int id = rs.getInt("id");
-            String foreas = rs.getString("foreas");
-            int poso = rs.getInt("poso");
-            double pososto = rs.getDouble("pososto");
-
-            budgets.add(new BudgetItem(id, foreas, poso, pososto));
-        }
-
-    } catch (SQLException e) {
-        e.printStackTrace();
+  /**
+   * Returns a single shared database connection.
+   *
+   * @return Connection
+   * @throws SQLException if connection fails
+   */
+  public static Connection getConnection() throws SQLException {
+    if (connection == null || connection.isClosed()) {
+      connection = DriverManager.getConnection(DB_URL);
+      enableForeignKeys(connection);
     }
+    return connection;
+  }
 
-    return budgets;
+  /** Enables foreign key constraints for SQLite */
+  private static void enableForeignKeys(Connection conn) throws SQLException {
+    try (Statement stmt = conn.createStatement()) {
+      stmt.execute("PRAGMA foreign_keys = ON;");
+    }
+  }
+
+  /** Safely closes the connection (call on app exit if you want) */
+  public static void closeConnection() {
+    if (connection != null) {
+      try {
+        connection.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+  }
 }
 
-}
