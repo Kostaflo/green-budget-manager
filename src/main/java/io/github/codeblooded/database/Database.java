@@ -7,12 +7,12 @@ import java.sql.Statement;
 
 public final class Database {
 
-  // SQLite database file (relative to project root)
+
   private static final String DB_URL = "jdbc:sqlite:green_budget.db";
 
   private static Connection connection;
 
-  // Private constructor -> no instances
+
   private Database() {}
 
   /**
@@ -29,14 +29,13 @@ public final class Database {
     return connection;
   }
 
-  /** Enables foreign key constraints for SQLite */
   private static void enableForeignKeys(Connection conn) throws SQLException {
     try (Statement stmt = conn.createStatement()) {
       stmt.execute("PRAGMA foreign_keys = ON;");
     }
   }
 
-  /** Safely closes the connection (call on app exit if you want) */
+
   public static void closeConnection() {
     if (connection != null) {
       try {
