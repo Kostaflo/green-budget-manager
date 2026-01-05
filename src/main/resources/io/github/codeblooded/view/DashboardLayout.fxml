@@ -13,7 +13,6 @@
   spacing="10" alignment="CENTER">
 
   <Button fx:id="viewButton" text="View" onAction="#handleView" />
-  <Button fx:id="editButton" text="Edit" onAction="#handleEdit" />
   <Button fx:id="logoutButton" text="Log out" onAction="handleLogout" />
 
 </VBox>
