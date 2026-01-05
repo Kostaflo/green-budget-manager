@@ -6,11 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import io.github.codeblooded.model.User.Role;
-import io.github.codeblooded.service.UserService;
+
 
 class UserServiceTest {
 
-    private UserService service;
+ private UserService service;
 
     @BeforeEach
     void setUp() {
