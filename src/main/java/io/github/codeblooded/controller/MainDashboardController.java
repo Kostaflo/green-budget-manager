@@ -28,11 +28,11 @@ public class MainDashboardController {
   private void loadDashboard() {
     try {
       FXMLLoader loader =
-          new FXMLLoader(getClass().getResource("/io/github/codeblooded/view/DashboardView.fxml"));
+          new FXMLLoader(
+              getClass().getResource("/io/github/codeblooded/view/DashboardLayout.fxml"));
       Parent dashboardView = loader.load();
       DashboardController dashboardController = loader.getController();
       dashboardController.setMainController(this);
-      dashboardController.setUserService(this.userService);
 
       mainPane.getChildren().setAll(dashboardView);
 
@@ -46,10 +46,6 @@ public class MainDashboardController {
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
       Parent view = loader.load();
-      Object controller = loader.getController();
-      if (controller instanceof GreenBudgetController) {
-        ((GreenBudgetController) controller).setUserService(this.userService);
-      }
 
       mainPane.getChildren().setAll(view);
     } catch (IOException e) {
@@ -66,8 +62,6 @@ public class MainDashboardController {
       Stage stage = (Stage) mainPane.getScene().getWindow();
       stage.setScene(new Scene(loginView));
       stage.centerOnScreen();
-      UserLoginController loginController = loader.getController();
-      loginController.setUserService(this.userService);
       System.out.println("Logged out successfully");
 
     } catch (IOException e) {
