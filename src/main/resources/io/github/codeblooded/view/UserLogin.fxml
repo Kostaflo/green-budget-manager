@@ -16,11 +16,13 @@
 
 
 
-    <center> 
+    <center xmlns="http://javafx.com/javafx/17"
+  xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="io.github.codeblooded.controller.LoginController"> 
         <VBox alignment="CENTER" spacing="10">
             <Label text="Log in as:"/>
-            <Button fx:id="LoginButton" text="Admin"/>
-            <Button fx:id="GuestButton" text="Guest"/>
+            <Button fx:id="loginButton" text="Admin" onAction="#handleAdminLogin"/>
+            <Button fx:id="guestButton" text="Guest" onAction="#handleGuestLogin"/>
         </VBox>
     </center>
 
