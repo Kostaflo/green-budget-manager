@@ -14,14 +14,12 @@
 <?import javafx.geometry.Insets?>
 
 
-
-
     <center xmlns="http://javafx.com/javafx/17"
   xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="io.github.codeblooded.controller.LoginController"> 
         <VBox alignment="CENTER" spacing="10">
             <Label text="Log in as:"/>
-            <Button fx:id="loginButton" text="Admin" onAction="#handleAdminLogin"/>
+            <Button fx:id="adminButton" text="Admin" onAction="#handleAdminLogin"/>
             <Button fx:id="guestButton" text="Guest" onAction="#handleGuestLogin"/>
         </VBox>
     </center>
