@@ -20,12 +20,7 @@ public class DashboardController {
   private void handleView() {
     mainController.loadView("/io/github/codeblooded/view/GreenBudgetView.fxml");
   }
-
-  @FXML
-  private void handleEdit() {
-    // Future implementation for edit functionality
-  }
-
+  
   @FXML
   private void handleLogout() {
     mainController.logout();
