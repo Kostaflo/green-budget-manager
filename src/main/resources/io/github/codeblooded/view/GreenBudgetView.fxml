@@ -1,109 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
+<BorderPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.codeblooded.controller.GreenBudgetViewController">
+   
+   <top>
+      <VBox spacing="10.0" style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+         <Label text="Green Budget Analysis Dashboard" textFill="WHITE">
+            <font><Font name="System Bold" size="26.0" /></font>
+         </Label>
+         <HBox alignment="CENTER_LEFT" spacing="15.0">
+            <Label text="🔍 Αναζήτηση:" textFill="WHITE" style="-fx-font-weight: bold;" />
+            <TextField fx:id="searchField" promptText="Όνομα Προγράμματος..." prefWidth="250.0" />
+            <Label text="🏛️ Υπουργείο:" textFill="WHITE" style="-fx-font-weight: bold;" />
+            <TextField fx:id="ministryFilter" promptText="Φίλτρο Υπουργείου..." prefWidth="200.0" />
+         </HBox>
+      </VBox>
+   </top>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" 
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="MainScreenController">
+   <center>
+      <SplitPane dividerPositions="0.65" BorderPane.alignment="CENTER">
+         <VBox>
+            <TableView fx:id="budgetTable" VBox.vgrow="ALWAYS" tableMenuButtonVisible="true">
+              <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="50.0" />
+                <TableColumn fx:id="nameColumn" text="Πρόγραμμα" prefWidth="250.0" />
+                <TableColumn fx:id="ministryColumn" text="Υπουργείο" prefWidth="150.0" />
+                <TableColumn fx:id="amountColumn" text="Ποσό (€)" prefWidth="110.0" />
+                <TableColumn fx:id="tagColumn" text="Total Tag" prefWidth="70.0" />
+                <TableColumn text="Tags ανά Στόχο">
+                    <columns>
+                        <TableColumn fx:id="meivshColumn" text="Μείωση" prefWidth="60.0" />
+                        <TableColumn fx:id="prosarmofhColumn" text="Προσαρμ." prefWidth="60.0" />
+                        <TableColumn fx:id="ydatinaColumn" text="Υδάτινα" prefWidth="60.0" />
+                        <TableColumn fx:id="kyklikhColumn" text="Κυκλική" prefWidth="60.0" />
+                        <TableColumn fx:id="rypanshColumn" text="Ρύπανση" prefWidth="60.0" />
+                        <TableColumn fx:id="biopoikilothtaColumn" text="Βιοποικ." prefWidth="60.0" />
+                    </columns>
+                </TableColumn>
+              </columns>
+            </TableView>
+         </VBox>
 
-    <top>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-    
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
-            <Label text="Φίλτρο 1:"/>
-            <ComboBox fx:id="filter1Combo"/>
+         <VBox spacing="20.0" style="-fx-background-color: white; -fx-padding: 10;">
+            <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+               <Label text="Συνολικός Αντίκτυπος (Θ/Α/Ο)" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+               <PieChart fx:id="budgetPieChart" />
+            </VBox>
+            
+            <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+               <Label text="Θετικός Αντίκτυπος ανά Στόχο (M€)" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+               <BarChart fx:id="budgetBarChart" legendVisible="false">
+                 <xAxis><CategoryAxis label="Στόχοι" fx:id="xAxis" /></xAxis>
+                 <yAxis><NumberAxis label="Εκατ. €" fx:id="yAxis" /></yAxis>
+               </BarChart>
+            </VBox>
+         </VBox>
+      </SplitPane>
+   </center>
 
-            <Label text="Φίλτρο 2:"/>
-            <ComboBox fx:id="filter2Combo"/>
-        </HBox>
-
-    </top>
-
-  
-    <center>
-        <SplitPane dividerPositions="0.55">
-            <items>
-
-                <VBox spacing="10">
-                        <padding>
-                            <Insets top="10" right="10" bottom="10" left="10"/>
-                        </padding>
-                        <Label text="Τρέχων προϋπολογισμός" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                        <TableView fx:id="mainTableView" prefHeight="600" prefWidth="400">
-                            <columns>
-                                <TableColumn fx:id="colA" text="ID">
-                                <TableColumn fx:id="colB" text="Προγράμματα"/>
-                                <TableColumn fx:id="colC" text="Φορέας"/>
-                                <TableColumn fx:id="colD" text="Δαπάνες"/> 
-                                <TableColumn fx:id="colE" text="Μείσωση Κλ. Αλλαγής"/>
-                                <TableColumn fx:id="colF" text="Προσαρμογή Κλ. Αλλαγή"/> 
-                                <TableColumn fx:id="colG" text="Υδάτινοι/Θαλάσσιοι Πόροι"/>
-                                <TableColumn fx:id="colH" text="Κυκλική Οικονομία"/>
-                                <TableColumn fx:id="colI" text="Έλεγχος ρύπανσης"/>
-                                <TableColumn fx:id="colJ" text="Βιοποικιλότητα"/>
-                                <TableColumn fx:id="colD" text="Αποτίμηση Προγάμματος"/> 
-                            </columns>
-                        </TableView>
-                    
-                </VBox>
-
-           
-                <VBox spacing="20">
-                        <padding>
-                            <Insets top="0" right="0" bottom="20" left="0"/>
-                        </padding>
-                        <VBox>
-                            <Label text="Percentage Pie" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                            <PieChart fx:id="pieChart1" prefHeight="250" prefWidth="300"/>
-                        </VBox>
-
-                        <!-- Bar Chart -->
-                        <VBox>
-                            <Label text="Percentage Bar Chart" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                            <BarChart fx:id="barChart" prefHeight="250" prefWidth="300">
-                                <xAxis>
-                                    <CategoryAxis label="Κατηγορίες"/>
-                                </xAxis>
-                                <yAxis>
-                                    <NumberAxis label="Τιμές"/>
-                                </yAxis>
-                            </BarChart>
-                        </VBox>
-
-                </VBox>
-
-            </items>
-        </SplitPane>
-    </center>
-
-    <!-- BOTTOM: Admin Simulation Panel -->
-    <bottom>
-        <TitledPane fx:id="adminPanel" text="Προσομοίωση Admin (Επεξεργασία)" expanded="false">
-            <content>
-                <HBox spacing="15" alignment="CENTER_LEFT">
-                    <padding>
-                        <Insets top="10" right="10" bottom="10" left="10"/>
-                    </padding>
-
-                    <Label text="Επιλεγμένο Πρόγραμμα:" style="-fx-font-weight: bold;"/>
-                    <Label fx:id="lblSelectedProgram" text="-" minWidth="150"/>
-
-                    <Label text="Νέο Ποσό (€):"/>
-                    <TextField fx:id="txtEditAmount" promptText="Ποσό"/>
-
-                    <Label text="Νέο Tag:"/>
-                    <ComboBox fx:id="cmbEditTag" prefWidth="100"/>
-
-                    <Button text="Ενημέρωση &amp; Υπολογισμός" onAction="#handleUpdateBudget"/>
-                </HBox>
-            </content>
-        </TitledPane>
-    </bottom>
-
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" style="-fx-padding: 10; -fx-background-color: #ecf0f1;">
+         <Button onAction="#handleBack" text="🔙 Επιστροφή" style="-fx-font-size: 14px; -fx-cursor: hand;" />
+      </HBox>
+   </bottom>
 </BorderPane>
