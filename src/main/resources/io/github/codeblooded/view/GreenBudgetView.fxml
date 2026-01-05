@@ -84,17 +84,23 @@
 
     <!-- BOTTOM: Admin Simulation Panel -->
     <bottom>
-        <TitledPane text="Προσομοίωση Admin" expanded="false">
+        <TitledPane fx:id="adminPanel" text="Προσομοίωση Admin (Επεξεργασία)" expanded="false">
             <content>
-                <HBox spacing="15">
+                <HBox spacing="15" alignment="CENTER_LEFT">
                     <padding>
-                        <Insets top="0" right="0" bottom="20" left="0"/>
-                    </padding>                
-                    <Button fx:id="btnStartSim" text="Έναρξη Προσομοίωσης"/>
-                    <Button fx:id="btnStopSim" text="Τερματισμός"/>
-                    <Label text="Κατάσταση:"/>
-                    <Label fx:id="lblSimStatus" text="Ανενεργή"/>
-                    
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <Label text="Επιλεγμένο Πρόγραμμα:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblSelectedProgram" text="-" minWidth="150"/>
+
+                    <Label text="Νέο Ποσό (€):"/>
+                    <TextField fx:id="txtEditAmount" promptText="Ποσό"/>
+
+                    <Label text="Νέο Tag:"/>
+                    <ComboBox fx:id="cmbEditTag" prefWidth="100"/>
+
+                    <Button text="Ενημέρωση &amp; Υπολογισμός" onAction="#handleUpdateBudget"/>
                 </HBox>
             </content>
         </TitledPane>
