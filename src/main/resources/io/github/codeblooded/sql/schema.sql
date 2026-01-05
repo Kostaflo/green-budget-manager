@@ -7,13 +7,6 @@ DROP TABLE IF EXISTS Ministries;
 DROP TABLE IF EXISTS Regions;
 DROP TABLE IF EXISTS Users;
 
--- Πίνακας Users
---CREATE TABLE Users (
-  --  user_id     INTEGER     PRIMARY KEY,
-    --username    TEXT        NOT NULL UNIQUE,
-   -- role        TEXT        NOT NULL CHECK(role IN ('admin', 'readonly')) 
---);
-
 -- Πίνακας Ministries (Φορείς/Υπουργεία)
 CREATE TABLE Ministries (
     ministry_id     INTEGER     PRIMARY KEY,
