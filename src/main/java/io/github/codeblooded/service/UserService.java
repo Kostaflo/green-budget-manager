@@ -17,6 +17,10 @@ public class UserService {
     return instance;
   }
 
+  public void logout() {
+    this.currentUser = null;
+  }
+
   public boolean login(Role role) {
     if (role == null) {
       return false;

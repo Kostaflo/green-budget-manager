@@ -1,6 +1,6 @@
 package io.github.codeblooded.controller;
 
-import io.github.codeblooded.model.User.Role;
+import io.github.codeblooded.model.User.Role; // Σημαντικό import!
 import io.github.codeblooded.service.UserService;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -18,56 +18,47 @@ public class LoginController {
   private final UserService userService = UserService.getInstance();
 
   @FXML
-  public void initialize() {
-    // Εδώ μπορούμε να αρχικοποιήσουμε στυλ αν χρειαστεί
-  }
-
-  @FXML
   private void handleAdminLogin() {
-    enterApp(Role.ADMIN);
+    System.out.println("Logging in as Admin...");
+
+    // Χρησιμοποιούμε την ΥΠΑΡΧΟΥΣΑ μέθοδο login(Role role)
+    // Δεν χρειάζεται έλεγχος κωδικού, το κουμπί είναι αρκετό
+    userService.login(Role.ADMIN);
+
+    loadDashboard();
   }
 
   @FXML
   private void handleGuestLogin() {
-    enterApp(Role.GUEST);
+    System.out.println("Logging in as Guest...");
+
+    // Ομοίως για τον Guest
+    userService.login(Role.GUEST);
+
+    loadDashboard();
   }
 
-  /**
-   * Κοινή μέθοδος για την είσοδο στην εφαρμογή. 1. Ενημερώνει το Role στο UserService. 2. Φορτώνει
-   * το RootLayout (MainDashboard).
-   */
-  private void enterApp(Role role) {
-    // Ενημέρωση του Service
-    userService.login(role);
-    System.out.println("Logged in as: " + role);
-
+  private void loadDashboard() {
     try {
-      // Φόρτωση του MainDashboard (RootLayout.fxml)
       FXMLLoader loader =
-          new FXMLLoader(getClass().getResource("/io/github/codeblooded/view/RootLayout.fxml"));
-
-      // Δημιουργία MainDashboardController
-      MainDashboardController mainDashboardController = new MainDashboardController();
-      loader.setController(mainDashboardController);
-
+          new FXMLLoader(
+              getClass().getResource("/io/github/codeblooded/view/DashboardLayout.fxml"));
       Parent root = loader.load();
 
-      // Αλλαγή του Scene στο υπάρχον Stage
-      Stage stage = (Stage) adminButton.getScene().getWindow();
-      Scene scene = new Scene(root, 1200, 800);
+      // Παίρνουμε το παράθυρο από όποιο κουμπί πατήθηκε
+      Stage stage =
+          (Stage)
+              (adminButton.getScene() != null
+                  ? adminButton.getScene().getWindow()
+                  : guestButton.getScene().getWindow());
 
-      // CSS
-      scene
-          .getStylesheets()
-          .add(getClass().getResource("/io/github/codeblooded/style/style.css").toExternalForm());
-
-      stage.setScene(scene);
-      stage.setTitle("Green Budget Manager - " + role);
-      stage.show();
+      stage.setScene(new Scene(root, 1200, 800));
+      stage.setResizable(true);
+      stage.centerOnScreen();
 
     } catch (IOException e) {
-      System.err.println("Σφάλμα κατά τη φόρτωση του Main Dashboard: " + e.getMessage());
       e.printStackTrace();
+      System.err.println("CRITICAL: Failed to load DashboardLayout.fxml");
     }
   }
 }

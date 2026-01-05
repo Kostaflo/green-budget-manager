@@ -11,22 +11,20 @@ public class Main extends Application {
   @Override
   public void start(Stage primaryStage) {
     try {
-      System.out.println("Starting application...");
-
-      // Load FXML with explicit path
+      // 1. Φόρτωση της οθόνης Login κατά την εκκίνηση
       FXMLLoader loader =
-          new FXMLLoader(getClass().getResource("/io/github/codeblooded/view/BudgetViewer.fxml"));
+          new FXMLLoader(getClass().getResource("/io/github/codeblooded/view/UserLogin.fxml"));
       Parent root = loader.load();
 
-      primaryStage.setTitle("Greek Budget Viewer");
-      primaryStage.setScene(new Scene(root, 800, 600));
+      // 2. Ρύθμιση του παραθύρου
+      primaryStage.setTitle("Green Budget Manager 2025");
+      primaryStage.setScene(new Scene(root));
+      primaryStage.setResizable(false); // Το Login συνήθως δεν αλλάζει μέγεθος
       primaryStage.show();
 
-      System.out.println("Application started successfully!");
-
     } catch (Exception e) {
-      System.err.println("Failed to start application: " + e.getMessage());
       e.printStackTrace();
+      System.err.println("CRITICAL ERROR: Could not load UserLogin.fxml");
     }
   }
 
