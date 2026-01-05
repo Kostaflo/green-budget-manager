@@ -14,17 +14,15 @@
 <?import javafx.geometry.Insets?>
 
 
+<center>
+  <VBox alignment="CENTER" spacing="10">
+    <Label text="Log in as:" />
+    <Button fx:id="admimButton" text="Admin" />
+    <Button fx:id="GuestButton" text="Guest" />
+  </VBox>
+</center>
 
-
-    <center> 
-        <VBox alignment="CENTER" spacing="10">
-            <Label text="Log in as:"/>
-            <Button fx:id="LoginButton" text="Admin"/>
-            <Button fx:id="GuestButton" text="Guest"/>
-        </VBox>
-    </center>
-
-    <!--<bottom>
+<!--<bottom>
         <VBox alignment="CENTER">
             <padding>
                 <Insets top="0" right="0" bottom="20" left="0"/>

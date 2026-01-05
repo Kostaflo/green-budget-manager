@@ -6,6 +6,17 @@ import io.github.codeblooded.model.User.Role;
 public class UserService {
   private User currentUser;
 
+  private static UserService instance;
+
+  private UserService() {}
+
+  public static UserService getInstance() {
+    if (instance == null) {
+      instance = new UserService();
+    }
+    return instance;
+  }
+
   public boolean login(Role role) {
     if (role == null) {
       return false;
