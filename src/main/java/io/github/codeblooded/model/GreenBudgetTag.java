@@ -1,162 +1,51 @@
 package io.github.codeblooded.model;
 
 public class GreenBudgetTag {
+    private int programId;
+    private String programName;
+    private String owningEntityName; // Από τον πίνακα Ministries
+    private double poso;             // Από τον πίνακα Budget
+    private String greenTag;         // Συνολική αποτίμηση (Θ, Α, ΜΠ, Ο)
 
-  // Από τον πίνακα Programs
-  private int programId;
-  private String programName;
+    // Οι 6 περιβαλλοντικοί στόχοι
+    private String tagKlhmatikhMeiwsh;
+    private String tagKlhmatikhProsarmogh;
+    private String tagYdatina;
+    private String tagKyklikhOikonomia;
+    private String tagRypanshElegxos;
+    private String tagBiopoikilothtaProstasla;
 
-  // Από τον πίνακα Budget
-  private double poso; // Το budget2025 (amount)
-  private double pososto; // Το pososto
+    public GreenBudgetTag(int programId, String programName, String owningEntityName, double poso, 
+                          String greenTag, String tagKlhmatikhMeiwsh, String tagKlhmatikhProsarmogh, 
+                          String tagYdatina, String tagKyklikhOikonomia, String tagRypanshElegxos, 
+                          String tagBiopoikilothtaProstasla) {
+        this.programId = programId;
+        this.programName = programName;
+        this.owningEntityName = owningEntityName;
+        this.poso = poso;
+        this.greenTag = greenTag;
+        this.tagKlhmatikhMeiwsh = tagKlhmatikhMeiwsh;
+        this.tagKlhmatikhProsarmogh = tagKlhmatikhProsarmogh;
+        this.tagYdatina = tagYdatina;
+        this.tagKyklikhOikonomia = tagKyklikhOikonomia;
+        this.tagRypanshElegxos = tagRypanshElegxos;
+        this.tagBiopoikilothtaProstasla = tagBiopoikilothtaProstasla;
+    }
 
-  // Foreign Keys για σύνδεση με τα λεξικά Ministries/Regions
-  private int
-      ministryId; // Χρησιμοποιείται αν το πρόγραμμα είναι κεντρικό Υπουργείο (μπορεί να είναι
-  // NULL)
-  private int
-      regionId; // Χρησιμοποιείται αν το πρόγραμμα είναι Αποκεντρωμένη Διοίκηση (μπορεί να είναι
-  // NULL)
+    // Getters (Απαραίτητοι για τον TableView)
+    public int getProgramId() { return programId; }
+    public String getProgramName() { return programName; }
+    public String getOwningEntityName() { return owningEntityName; }
+    public double getPoso() { return poso; }
+    public String getGreenTag() { return greenTag; }
+    public String getTagKlhmatikhMeiwsh() { return tagKlhmatikhMeiwsh; }
+    public String getTagKlhmatikhProsarmogh() { return tagKlhmatikhProsarmogh; }
+    public String getTagYdatina() { return tagYdatina; }
+    public String getTagKyklikhOikonomia() { return tagKyklikhOikonomia; }
+    public String getTagRypanshElegxos() { return tagRypanshElegxos; }
+    public String getTagBiopoikilothtaProstasla() { return tagBiopoikilothtaProstasla; }
 
-  // 7 Tags (από τον πίνακα Programs)
-  private String tagKlhmatikhMeivsh;
-  private String tagKlhmatikhProsarmofh;
-  private String tagYdatina;
-  private String tagKyklikhOikonomia;
-  private String tagRypanshElegxos;
-  private String tagBiopoikilothtaProstasla;
-  private String greenTag; // Η Συνολική Αποτίμηση
-
-  public GreenBudgetTag() {}
-
-  // Getters and Setters
-
-  public int getProgramId() {
-    return programId;
-  }
-
-  public void setProgramId(int programId) {
-    this.programId = programId;
-  }
-
-  public String getProgramName() {
-    return programName;
-  }
-
-  public void setProgramName(String programName) {
-    this.programName = programName;
-  }
-
-  public int getMinistryId() {
-    return ministryId;
-  }
-
-  public void setMinistryId(int ministryId) {
-    this.ministryId = ministryId;
-  }
-
-  public Integer getRegionId() {
-    return regionId;
-  }
-
-  public void setRegionId(Integer regionId) {
-    this.regionId = regionId;
-  }
-
-  public double getPoso() {
-    return poso;
-  }
-
-  public void setPoso(double poso) {
-    this.poso = poso;
-  }
-
-  public double getPososto() {
-    return pososto;
-  }
-
-  public void setPososto(double pososto) {
-    this.pososto = pososto;
-  }
-
-  public String getGreenTag() {
-    return greenTag;
-  }
-
-  public void setGreenTag(String greenTag) {
-    this.greenTag = greenTag;
-  }
-
-  // --- Getters and Setters για τα 6 Επιμέρους Tags ---
-
-  public String getTagKlhmatikhMeiwsh() {
-    return tagKlhmatikhMeivsh;
-  }
-
-  /** Μείωση των επιπτώσεων της κλιματικής αλλαγής */
-  public void setTagKlhmatikhMeiwsh(String tagKlhmatikhMeivsh) {
-    this.tagKlhmatikhMeivsh = tagKlhmatikhMeivsh;
-  }
-
-  public String getTagKlhmatikhProsarmogh() {
-    return tagKlhmatikhProsarmofh;
-  }
-
-  /** Προσαρμογή στην κλιματική αλλαγή */
-  public void setTagKlhmatikhProsarmogh(String tagKlhmatikhProsarmofh) {
-    this.tagKlhmatikhProsarmogh = tagKlhmatikhProsarmogh;
-  }
-
-  public String getTagYdatina() {
-    return tagYdatina;
-  }
-
-  /** Βιώσιμη χρήση και προστασία των υδάτινων και των θαλάσσιων πόρων */
-  public void setTagYdatina(String tagYdatina) {
-    this.tagYdatina = tagYdatina;
-  }
-
-  public String getTagKyklikhOikonomia() {
-    return tagKyklikhOikonomia;
-  }
-
-  /** Μετάβαση σε κυκλική οικονομία */
-  public void setTagKyklikhOikonomia(String tagKyklikhOikonomia) {
-    this.tagKyklikhOikonomia = tagKyklikhOikonomia;
-  }
-
-  public String getTagRypanshElegxos() {
-    return tagRypanshElegxos;
-  }
-
-  /** Πρόληψη και έλεγχος της ρύπανσης */
-  public void setTagRypanshElegxos(String tagRypanshElegxos) {
-    this.tagRypanshElegxos = tagRypanshElegxos;
-  }
-
-  public String getTagBiopoikilothtaProstasla() {
-    return tagBiopoikilothtaProstasla;
-  }
-
-  /** Προστασία και αποκατάσταση της βιοποικιλότητας και των οικοσυστημάτων */
-  public void setTagBiopoikilothtaProstasla(String tagBiopoikilothtaProstasla) {
-    this.tagBiopoikilothtaProstasla = tagBiopoikilothtaProstasla;
-  }
-
-  // Μπορείτε να προσθέσετε και μια μέθοδο toString() για ευκολότερο debugging
-  @Override
-  public String toString() {
-    return "GreenBudgetTag{"
-        + "programId="
-        + programId
-        + ", programName='"
-        + programName
-        + '\''
-        + ", poso="
-        + poso
-        + ", greenTag='"
-        + greenTag
-        + '\''
-        + '}';
-  }
+    // Setters (Για την προσομοίωση από τον Admin)
+    public void setPoso(double poso) { this.poso = poso; }
+    public void setGreenTag(String greenTag) { this.greenTag = greenTag; }
 }
