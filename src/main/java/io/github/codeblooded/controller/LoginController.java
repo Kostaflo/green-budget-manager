@@ -10,6 +10,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * Ελέγχει τη διαδικασία εισόδου (Login) στην εφαρμογή.
+ *
+ * <p>Η κλάση αυτή διαχειρίζεται την αυθεντικοποίηση του χρήστη, αναθέτοντας τον κατάλληλο ρόλο
+ * (Admin ή Guest) μέσω του {@link UserService}.
+ *
+ * @author CodeBlooded Team
+ * @version 1.0
+ */
 public class LoginController {
 
   @FXML private Button adminButton;
@@ -17,6 +26,11 @@ public class LoginController {
 
   private final UserService userService = UserService.getInstance();
 
+  /**
+   * Χειρίζεται την είσοδο ως Διαχειριστής (Admin).
+   *
+   * <p>Ορίζει τον ρόλο του χρήστη σε {@link Role#ADMIN} και φορτώνει το Dashboard.
+   */
   @FXML
   private void handleAdminLogin() {
     System.out.println("Logging in as Admin...");
@@ -28,6 +42,11 @@ public class LoginController {
     loadDashboard();
   }
 
+  /**
+   * Χειρίζεται την είσοδο ως Επισκέπτης (Guest).
+   *
+   * <p>Ορίζει τον ρόλο του χρήστη σε {@link Role#GUEST} και φορτώνει το Dashboard.
+   */
   @FXML
   private void handleGuestLogin() {
     System.out.println("Logging in as Guest...");
@@ -38,6 +57,11 @@ public class LoginController {
     loadDashboard();
   }
 
+  /**
+   * Φορτώνει την επόμενη σκηνή (DashboardLayout.fxml).
+   *
+   * <p>Ρυθμίζει το μέγεθος του παραθύρου σε 1200x800 και το κεντράρει στην οθόνη.
+   */
   private void loadDashboard() {
     try {
       FXMLLoader loader =

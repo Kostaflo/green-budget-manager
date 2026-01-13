@@ -9,12 +9,26 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+/**
+ * Ελέγχει το Κεντρικό Μενού (Dashboard) της εφαρμογής.
+ *
+ * <p>Η κλάση αυτή λειτουργεί ως κόμβος πλοήγησης, επιτρέποντας στον χρήστη να μεταβεί στην ανάλυση
+ * δεδομένων ή να αποσυνδεθεί.
+ *
+ * @author CodeBlooded Team
+ * @version 1.0
+ */
 public class DashboardController {
 
   @FXML private Label welcomeLabel; // Αντιστοιχεί στο fx:id="welcomeLabel"
 
   private final UserService userService = UserService.getInstance();
 
+  /**
+   * Αρχικοποιεί τον Controller.
+   *
+   * <p>Ενημερώνει την ετικέτα καλωσορίσματος ανάλογα με τον ρόλο του χρήστη (Admin/Guest).
+   */
   @FXML
   public void initialize() {
     // Ενημέρωση μηνύματος καλωσορίσματος
@@ -27,6 +41,11 @@ public class DashboardController {
     }
   }
 
+  /**
+   * Μεταβαίνει στην οθόνη GreenBudgetView.
+   *
+   * <p>Φορτώνει το FXML της ανάλυσης και ορίζει το παράθυρο σε διαστάσεις 1400x900.
+   */
   @FXML
   private void handleView() {
     try {
@@ -46,6 +65,11 @@ public class DashboardController {
     }
   }
 
+  /**
+   * Αποσυνδέει τον χρήστη.
+   *
+   * <p>Καλεί την logout του UserService και επιστρέφει στην οθόνη Login.
+   */
   @FXML
   private void handleLogout() {
     try {
