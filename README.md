@@ -31,11 +31,11 @@ mvn clean package
 > **Προσοχή:** Βεβαιωθείτε ότι το αρχείο `budget.db` βρίσκεται στον ίδιο φάκελο με το jar.
 
 **Εκτέλεση μέσω τερματικού:**
-```bash
-java -jar target/GreenBudgetManager-1.0-SNAPSHOT.jar
-```
 
-(Εναλλακτικά μέσω Maven: `mvn javafx:run`)
+```bash
+mvn compile
+mvn exec:java
+```
 
 ---
 
