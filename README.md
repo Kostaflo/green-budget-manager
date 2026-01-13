@@ -135,3 +135,10 @@ classDiagram
 * **JavaDoc:** Πλήρης σχολιασμός κώδικα (Classes, Methods, Fields).
 * **Unit Tests:** Έλεγχοι JUnit για τα Models και το Service layer.
 * **Coverage:** Έλεγχος κάλυψης βασικών σεναρίων χρήσης.
+
+
+---
+
+## 8. Άδεια Χρήσης (License)
+
+Το παρόν έργο διατίθεται υπό την άδεια **Apache License 2.0**. Για το πλήρες κείμενο της άδειας, ανατρέξτε στο αρχείο [LICENSE](LICENSE).
