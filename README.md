@@ -134,7 +134,6 @@ classDiagram
 
 * **JavaDoc:** Πλήρης σχολιασμός κώδικα (Classes, Methods, Fields).
 * **Unit Tests:** Έλεγχοι JUnit για τα Models και το Service layer.
-* **Coverage:** Έλεγχος κάλυψης βασικών σεναρίων χρήσης.
 
 
 ---
