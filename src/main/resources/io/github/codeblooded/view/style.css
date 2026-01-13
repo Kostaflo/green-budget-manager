@@ -1,0 +1,116 @@
+/* --- Γενικές Ρυθμίσεις & Γραμματοσειρά --- */
+.root {
+    -fx-base: #ffffff; /* Λευκό φόντο */
+    -fx-font-family: 'Arial', 'Segoe UI', sans-serif; /* Η γραμματοσειρά της παρουσίασης */
+}
+
+/* --- Πλαϊνό Μενού / Header (Το σκούρο μπλε της παρουσίασης) --- */
+.sidebar {
+    -fx-background-color: #13304e; /* Deep Navy Blue (dk1) */
+}
+
+/* --- Υπάρχον Πράσινο Κουμπί (Default) --- */
+.button {
+    -fx-background-color: #6ea843; /* Accent Green */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: #a4cd49;
+}
+
+/* --- ΝΕΟ: Μπλε Κουμπί (Για Admin & Logout) --- */
+.button-blue {
+    -fx-background-color: #13304e; /* Το Σκούρο Μπλε της Παρουσίασης */
+    -fx-text-fill: white;
+}
+
+.button-blue:hover {
+    -fx-background-color: #38516a; /* Λίγο πιο ανοιχτό μπλε για το ποντίκι */
+}
+
+/* --- Ετικέτες & Τίτλοι --- */
+.label {
+    -fx-text-fill: #13304e; /* Dark Blue Text */
+}
+
+.label-header {
+    -fx-font-size: 26px;
+    -fx-text-fill: #13304e; /* Dark Navy */
+    -fx-font-weight: bold;
+    -fx-font-family: 'Arial', sans-serif;
+}
+
+/* Κείμενο μέσα στο sidebar (πρέπει να είναι λευκό) */
+.sidebar .label {
+    -fx-text-fill: white;
+}
+
+/* --- TextField (Πεδία κειμένου) --- */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #7b8c9d; /* Grey Blue (lt2) */
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 8;
+}
+
+.text-field:focused {
+    -fx-border-color: #6ea843; /* Green focus */
+    -fx-border-width: 2px;
+}
+
+/* --- TABLE VIEW (Πίνακας) --- */
+.table-view {
+    -fx-base: white;
+    -fx-selection-bar: #dbebb7; /* Very Light Green (Accent 3) για επιλογή */
+    -fx-selection-bar-non-focused: #e0e0e0;
+}
+
+/* Η μπάρα τίτλων του πίνακα */
+.table-view .column-header-background {
+    -fx-background-color: #13304e; /* Deep Navy */
+    -fx-background-insets: 0;
+}
+
+/* Τα κουτάκια των τίτλων */
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 45px;
+    -fx-border-color: rgba(255,255,255,0.3);
+    -fx-border-width: 0 1px 0 0;
+}
+
+/* Τα γράμματα στους τίτλους */
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+/* Εφέ όταν περνάς το ποντίκι από τους τίτλους */
+.table-view .column-header:hover {
+    -fx-background-color: #38516a; /* Lighter Navy (dk2) */
+}
+
+/* Γραμμές πίνακα */
+.table-view .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+}
+
+/* Zebra striping (εναλλάξ χρώματα) */
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f8f9fa; /* Πολύ απαλό γκρι/λευκό */
+}
+
+/* Επιλεγμένη γραμμή */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #dbebb7; /* Pale Green Selection */
+}
+.table-view .table-row-cell:selected .text {
+    -fx-fill: #13304e; /* Dark Blue Text on selection */
+}

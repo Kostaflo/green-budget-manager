@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="25.0" style="-fx-background-color: white;"
+<VBox stylesheets="@style.css" alignment="CENTER" spacing="25.0"
   xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="io.github.codeblooded.controller.DashboardController">
 
@@ -28,11 +28,13 @@
     </Label>
 
     <Button onAction="#handleView" text="📊 Προβολή Δεδομένων"
-      prefWidth="250.0" prefHeight="45.0"
-      style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" />
+      prefWidth="250.0" prefHeight="45.0" />
+    <!--style="-fx-background-color:
+    #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" />-->
 
     <Button onAction="#handleLogout" text="🚪 Αποσύνδεση"
-      prefWidth="250.0" prefHeight="45.0"
-      style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" />
+      prefWidth="250.0" prefHeight="45.0" styleClass="button-blue" />
+    <!--style="-fx-background-color:
+    #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" /> -->
   </children>
 </VBox>

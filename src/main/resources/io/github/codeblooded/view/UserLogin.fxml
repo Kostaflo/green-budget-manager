@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #ecf0f1;"
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@style.css"
   xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="io.github.codeblooded.controller.LoginController">
 
@@ -15,7 +15,7 @@
   </padding>
 
   <children>
-    <Label text="Green Budget Manager" textFill="#2c3e50">
+    <Label text="Green Budget Manager" styleClass="label-header">
       <font>
         <Font name="System Bold" size="24.0" />
       </font>
@@ -28,11 +28,9 @@
     </Label>
 
     <Button fx:id="adminButton" text="Είσοδος ως Admin" onAction="#handleAdminLogin"
-      prefWidth="200.0"
-      style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-font-weight: bold;" />
+      prefWidth="200.0" prefHeight="45.0" styleClass="button-blue" />
 
     <Button fx:id="guestButton" text="Είσοδος ως Guest" onAction="#handleGuestLogin"
-      prefWidth="200.0"
-      style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" />
+      prefWidth="200.0" prefHeight="45.0" />
   </children>
 </VBox>

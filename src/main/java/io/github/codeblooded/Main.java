@@ -17,7 +17,7 @@ public class Main extends Application {
       Parent root = loader.load();
 
       // 2. Ρύθμιση του παραθύρου
-      primaryStage.setTitle("Green Budget Manager 2025");
+      primaryStage.setTitle("Green Budget Manager");
       primaryStage.setScene(new Scene(root));
       primaryStage.setResizable(false); // Το Login συνήθως δεν αλλάζει μέγεθος
       primaryStage.show();
