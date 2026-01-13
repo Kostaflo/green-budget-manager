@@ -55,8 +55,7 @@ java -jar target/GreenBudgetManager-1.0-SNAPSHOT.jar
 
 ```text
 /src/main/java       -> Πηγαίος κώδικας Java (Controller, Model, Service, Database)
-/src/main/resources  -> Αρχεία FXML, CSS και εικόνες
-/sql                 -> Scripts δημιουργίας σχήματος βάσης δεδομένων
+/src/main/resources  -> Αρχεία FXML, CSS και sql (view, sql)
 /budget.db           -> Αρχείο βάσης δεδομένων SQLite
 pom.xml              -> Ρυθμίσεις Maven (Dependencies/Build)
 README.md            -> Τεχνική τεκμηρίωση
