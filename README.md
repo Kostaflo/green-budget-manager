@@ -68,16 +68,51 @@ README.md            -> Τεχνική τεκμηρίωση
 
 ```mermaid
 classDiagram
-    class Main { +start() }
-    class UserService { <<Singleton>> +login() +isAdmin() }
-    class Database { +getAllTags() +updateBudget() }
-    class GreenBudgetViewController { +initialize() +updateCharts() }
-    class GreenBudgetTag { <<DTO>> -programName -amount -greenTag }
+    direction LR
 
-    Main ..> UserService
-    GreenBudgetViewController --> Database
-    GreenBudgetViewController --> UserService
+    class Main {
+        +start()
+    }
+
+    class UserService {
+        <<Singleton>>
+        +getInstance()
+        +login()
+        +logout()
+        +isAdmin()
+    }
+
+    class Database {
+        +getAllTags()
+    }
+
+    class LoginController {
+    }
+
+    class DashboardController {
+    }
+
+    class GreenBudgetController {
+    }
+
+    class User {
+    }
+
+    class GreenBudgetTag {
+    }
+
+    %% Σχέσεις
+    Main ..> LoginController
+    LoginController ..> DashboardController
+    DashboardController ..> GreenBudgetController
+
+    LoginController --> UserService
+    DashboardController --> UserService
+    GreenBudgetController --> UserService
+
+    GreenBudgetController --> Database
     Database ..> GreenBudgetTag
+    UserService *-- User
 ```
 
 ---
