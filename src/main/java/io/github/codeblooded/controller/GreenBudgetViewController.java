@@ -97,6 +97,8 @@ public class GreenBudgetViewController {
     loadData();
     setupFilters();
 
+    applyColumnStyling();
+
     if (userService.isAdmin()) {
       enableAdminEdit();
     }
@@ -189,17 +191,10 @@ public class GreenBudgetViewController {
    */
   private void enableAdminEdit() {
     budgetTable.setEditable(true);
-    amountColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-
-    // Όταν ο χρήστης πατήσει Enter μετά την αλλαγή ποσού:
     amountColumn.setOnEditCommit(
         event -> {
           GreenBudgetTag tag = event.getRowValue();
           tag.setPoso(event.getNewValue());
-
-          // TODO: Προσθήκη κλήσης database.updateBudget(...) για μόνιμη αποθήκευση
-
-          // Ενημέρωση γραφημάτων με τα νέα ποσά
           updateCharts();
         });
   }
@@ -280,5 +275,46 @@ public class GreenBudgetViewController {
       e.printStackTrace();
       System.err.println("CRITICAL: Failed to load DashboardLayout.fxml");
     }
+  }
+
+  private void applyColumnStyling() {
+    //  Σταθερό πλάτος και κεντράρισμα στα Tags
+    double tagWidth = 65.0;
+    TableColumn[] tagCols = {
+      meivshColumn,
+      prosarmofhColumn,
+      ydatinaColumn,
+      kyklikhColumn,
+      rypanshColumn,
+      biopoikilothtaColumn,
+      tagColumn
+    };
+
+    for (TableColumn col : tagCols) {
+      col.setPrefWidth(tagWidth);
+      col.setStyle("-fx-alignment: CENTER;");
+    }
+
+    // Custom Cell Factory για το Ποσό
+    amountColumn.setCellFactory(
+        tc ->
+            new TextFieldTableCell<>(new DoubleStringConverter()) {
+              @Override
+              public void updateItem(Double item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                  setText(null);
+                } else if (!isEditing()) {
+                  //  δείχνει π.χ. 1.234.567,89 €
+                  setText(String.format("%,.2f €", item));
+                }
+                // Όταν κάνεις διπλό κλικ (isEditing), το TextFieldTableCell
+                // θα δείξει αυτόματα το σκέτο νούμερο για να το αλλάξεις.
+              }
+            });
+
+    // . Δυναμικό πλάτος στις μεγάλες στήλες
+    nameColumn.prefWidthProperty().bind(budgetTable.widthProperty().multiply(0.30));
+    ministryColumn.prefWidthProperty().bind(budgetTable.widthProperty().multiply(0.20));
   }
 }
